@@ -1,5 +1,209 @@
-body{
-  display:flex;
-  margin:0px;
-  padding:0px;
+
+/* all font family importing */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* all varibels  */
+
+:root {
+  --hue: 220;
+  --main-width: 100vw;
+  --main-height: 100svh;
+  --surface-1: hsl(var(--hue) 6% 12%);
+  --surface-2: hsl(var(--hue) 5% 30%);
+  --text-1: hsl(var(--hue) 10% 90%);
+  --text-2: hsl(var(--hue) 10% 80%);
+  --full-lebght: 100%;
+  --prime-padding: 2ch;
+  --btn-height-1: 3em;
+  --btn-height-2: 2em;
+  --btn-radius-1: .2em;
+  --btn-radius-2: 1000px;
+  --result-font-family: ;
+  --btn-1-font-fimaly: "josefin sans";
+  --btn-2-font-fimaly: "space mono";
+  --main-web-font-family: "josefin sans";
+  --btn-hover: hsl(var(--hue) 10% 50%);
+}
+
+/* settin m-0 and 0-p of all element */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* hidding scrall bar of html and boddy */
+
+html,
+body {
+  box-sizing: border-box;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+/* body style  */
+
+body {
+  background-color: var(--surface-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  padding-block: .5em;
+}
+
+/* first main contrnat style */
+
+main {
+  position: absolute;
+  background-color: var(--surface-1);
+  width: var(--main-width);
+  height: var(--main-height);
+  background-image: url("./appData/card-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* secont main contenat style  */
+
+main .cont {
+  height: 100svh;
+  width: var(--full-lebght);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 1em;
+  box-sizing: border-box;
+  color: var(--text-1);
+  font-family: var(--btn-1-font-fimaly);
+  background-color: rgba(255, 255, 255, 0.267);
+
+}
+
+main .cont .dis-cont {
+  box-sizing: border-box;
+  padding-inline: var(--prime-padding);
+  background-color: rgba(255, 255, 255, 0.144);
+  padding-block: .5em;
+  backdrop-filter: blur(5px);
+
+  /* for socer */
+
+  & .soc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .1em solid white;
+  }
+
+  /* for resull */
+
+  & .res {
+    padding-block: 1em;
+  }
+}
+
+main .cont .bottom {
+
+  & .navigation {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  & .btn-cont {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+    box-sizing: border-box;
+    padding-inline: var(--prime-padding);
+  }
+}
+
+/* styling of navigation buttons  */
+
+main .cont .bottom .navigation button {
+  all: unset;
+  --width: calc(100vw - calc(2 * var(--prime-padding)));
+  height: var(--btn-height-2);
+  width: calc(calc(var(--width) * 45) / 100);
+  font-family: var(--btn-2-font-fimaly);
+  text-align: center;
+  background-color: transparent;
+  color: var(--text-1);
+  border-radius: var(--btn-radius-2);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 10px 0;
+
+}
+
+/* styling of move buttons */
+
+
+main .cont .bottom .btn-cont .btn {
+  all: unset;
+  text-align: center;
+  height: var(--btn-height-1);
+  font-weight: 700;
+  font-family: var(--btn-1-font-fimaly);
+  background-color: transparent;
+  color: var(--text-1);
+  border-radius: var(--btn-radius-1);
+  box-shadow: inset 0 0 5px white;
+  background-color: rgba(255, 255, 255, 0.116);
+
+
+}
+
+/* Hover Effect of the button of moves */
+
+main .cont .bottom .btn-cont .btn:hover {
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+/* hove effect of navigation buttons */
+
+main .cont .bottom .navigation button:hover {
+  background-color: rgba(255, 255, 255, 0.203);
+  cursor: pointer;
+
+}
+
+/* click effict of the navigation buttons */
+
+main .cont .bottom .navigation button:active {
+  opacity: .5;
+}
+
+/* click effect of move buttons  */
+
+main .cont .bottom .btn-cont .btn:active {
+  opacity: .5;
+}
+
+/* mediya for the main element */
+
+
+@media screen and (min-width:350px) {
+  main {
+    max-width: 380px;
+    border: .1em solid white;
+  }
+
+  main .cont .bottom .navigation {
+    gap: 2em;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
